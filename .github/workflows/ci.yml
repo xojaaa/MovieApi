@@ -1,0 +1,25 @@
+
+name: Music API  CI
+
+on: [push]
+
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: spotify-settings
+    steps:
+      -uses: actions/chackout@v2
+      - uses: actions/setup-python v2
+        with:
+          python-version: 3.7
+        - name: Install Requrement
+          run: pip install -r requrements.txt
+        - name: Run Tests
+          run: pytest
+
+
+
+
+
